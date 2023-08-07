@@ -9,21 +9,63 @@
         </div>
         <!-- Botones -->
         <div class="col-12 col-md-6">
-          <span class="nav-bar" id="btnMenu" icon="ti-align-justify">Menu</span>
-          <q-nav class="main-nav">
-            <ul class="menu" id="menu">
-              <li class="menu__item"><a href="" class="menu__link">Inicio</a></li>
-              <li class="menu__item"><a href="" class="menu__link">Sobre Nosotros</a></li>
-              <li class="menu__item container-submenu">
-                <a href="" class="menu__link">Lista de Animales</a>
-                <ul class="submenu">
-                  <li class="menu__item"><a href="" class="menu__link">Adoptar</a></li>
-                  <li class="menu__item"><a href="" class="menu__link">Visitar</a></li>
-                </ul>
-              </li>
-              <li class="menu__item"><a href="" class="menu__link">Contactenos</a></li>
-            </ul>
-          </q-nav>
+          <div
+            class="col-xs-2 col-sm-2 col-md-8 menu-nav justify-end"
+          >
+            <q-btn class="open-menu q-mt-sm" @click="toggleNav" icon="ti-menu" flat />
+            <nav class="nav" ref="nav" id="nav">
+              <q-list class="nav-list">
+                <q-item
+                  clickable
+                  v-ripple
+                >
+                  <q-item-section>
+                    <q-btn
+                      class="closed-menu"
+                      @click="toggleNavs"
+                      icon="ti-close"
+                      flat
+                    />
+                  </q-item-section>
+                </q-item>
+                <q-item
+                  clickable
+                  v-ripple
+                  class="list_item"
+                  @click="IndexPage"
+                  to="/"
+                  active-class="my-menu-link"
+                  exact
+                >
+                  <q-item-section>Inicio</q-item-section>
+                </q-item>
+                <q-item
+                  clickable
+                  v-ripple
+                  class="list_item"
+                  active-class="my-menu-link"
+                >
+                  <q-item-section>Sobre Nosotros</q-item-section>
+                </q-item>
+                <q-item
+                  clickable
+                  v-ripple
+                  class="list_item"
+                  active-class="my-menu-link"
+                >
+                  <q-item-section>Adoptar</q-item-section>
+                </q-item>
+                <q-item
+                  clickable
+                  v-ripple
+                  class="list_item"
+                  active-class="my-menu-link"
+                >
+                  <q-item-section>Contactenos</q-item-section>
+                </q-item>
+              </q-list>
+            </nav>
+          </div>
         </div>
       </div>
     </header>
@@ -65,11 +107,12 @@ import EssentialLinkcopy7 from "src/components/EssentialLinkcopy7.vue";
 
 import { ref } from 'vue';
 
-const btnMenu = ref(null);
-const menu = ref(null);
-
-const toggleMenu = () => {
-  menu.value.classList.toggle('mostrar');
+const nav = ref(null)
+const toggleNav = () => {
+  nav.value.classList.add('visibility')
+};
+const toggleNavs = () => {
+  nav.value.classList.remove('visibility')
 };
 
 // Efecto Scroll Bar
@@ -90,6 +133,7 @@ header {
   transition: 0.7s;
   padding: 30px 20px;
   z-index: 10;
+  color: #26a699;
 }
 .zona1 {
   position: relative;
@@ -107,7 +151,7 @@ header.abajo {
   background: #26a699;
   padding: 5px 10px;
 }
-header.abajo button {
+header.abajo {
   color: #fff;
 }
 header img {
@@ -118,74 +162,64 @@ header img {
   margin-top: -20px;
 }
 
-.nav-bar {
-  background: #26a69a;
-  padding: 20px;
-  display: block;
-  color: white;
+.menu-nav {
+  display: flex;
+  padding: 1rem;
+}
+.nav-list {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+}
+.open-menu,
+.closed-menu {
+  display: none;
+}
+.list_item {
   cursor: pointer;
-  font-size: 1.5em;
-  width: 100%;
 }
-.menu, submenu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.menu {
-  background: #555;
-  width: 100%;
-  margin-left: -110%;
-}
-.menu__link {
-  display: block;
-  padding: 20px;
+.my-menu-link {
   color: white;
-  font-size: 1.4em;
-  text-decoration: none;
-}
-.menu__link:hover {
-  background: #26a69a;
-}
-.submenu .menu__link:hover {
-  background: #222;
-}
-.submenu {
-  height: 0;
-  overflow: hidden;
-  transition: all 0.3s;
-}
-.submenu .menu__link {
-  background: #333;
-  padding-left: 50px;
-}
-.mostrar {
-  margin-left: 0;
+  border-bottom: 5px solid white;
 }
 
-@media(min-width:1024px) {
-  .nav-bar {
-    display: none;
+@media screen and (max-width: 780px) {
+  .open-menu,
+  .closed-menu {
+    display: block;
+    color: white;
   }
-  .menu {
-    margin-left: 0;
-    display: flex;
+  .list_item {
+    cursor: pointer;
   }
-  .container-submenu {
-    position: relative;
+  .my-menu-link {
+    color: white;
+    border-bottom: 5px solid white;
   }
-  .submenu {
-    position: absolute;
-    top: 70px;
-    width: 200px;
-    overflow: visible;
-    z-index: 1000;
+  .nav {
     opacity: 0;
     visibility: hidden;
   }
-  .container-submenu:hover .submenu {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 1rem;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    padding: 2rem;
+    background-color: #1c1c1c;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+  }
+  .nav.visibility {
     opacity: 1;
     visibility: visible;
+  }
+  .nav-list {
+    flex-direction: column;
+    align-items: end;
   }
 }
 </style>
