@@ -3,18 +3,21 @@
     <!-- Imagen -->
     <div class="col-10 col-sm-10 col-md-3">
       <q-avatar class="avatar">
-        <img src="~assets/1.jpg" />
+        <img src="~assets/mi_cosi.jpg" />
       </q-avatar>
     </div>
     <!-- Texto -->
     <div class="col-10 col-sm-10 col-md-7">
-      <h6>Sobre nosotros</h6>
-      <h4>Grupo animalista <aw>cubano</aw></h4>
+      <h6>Para MI Cosi</h6>
+      <h4>Te Amo mi Princesa</h4>
       <p>
-        Los perros nunca saben lo que vendrá y viven el momento, saborean lo
-        bueno, hacen lo mejor para soportar lo malo y ofrecen este milagroso
-        ejemplo para que podamos aprender de ellos. (Linda Grey Sexton) Los
-        caninos solo viven en el aquí y en el ahora.
+        Princessa mia hoy despues de todo idas y venidas cumplimos un mes mas y pos q mejor manera de felicitarte o felicitarnos q de la manera en la q mejor se, sabes q no soy muy creativo pero bueno aqui estamos mi cosi bella.
+        <br>
+        <br>
+        Mi Cosi siempre te he dicho q eres lo mejor y mas bonito q me ha pasado en la vida y es asi mi princesita hermosa, hoy cumplimos un mes pero el tiempo pasa rapido y pronto seran años y cuando miremos atras habra sido toda una vida.
+        <br>
+        <br>
+        Te amo mi Cosi y espero q mañana tengamos un dia lindo juntos.
       </p>
     </div>
   </div>
