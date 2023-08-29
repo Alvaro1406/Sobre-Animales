@@ -4,7 +4,6 @@ node_modules
 
 # Quasar core related directories
 .quasar
-/dist
 
 # Cordova related directories and files
 /src-cordova/node_modules
@@ -33,3 +32,4 @@ yarn-error.log*
 *.sln
 
 .vercel
+.env*.local
