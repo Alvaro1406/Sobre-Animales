@@ -7,7 +7,7 @@ import axios from 'axios'
 // good idea to move this instance creation inside of the
 // "export default () => {}" function below (which runs individually
 // for each client)
-const api = axios.create({ baseURL: 'https://api.example.com' })
+const api = axios.create({ baseURL: 'https://edge-config.vercel.com/ecfg_vc9ogblfu82hwtjyqd3p2sw9rfto?token=ce21130d-b4d0-4460-9471-bdfafabcd17e' })
 
 export default boot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
